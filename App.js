@@ -1,11 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import Navbar from "./components/starter/menuBar";
+import Header from "./components/starter/header";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Header />
+      <Navbar />
     </View>
   );
 }
@@ -13,8 +16,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "flex-end",
+    alignItems: "center",
+    paddingBottom: 0,
+    backgroundColor: "#111827",
   },
 });
