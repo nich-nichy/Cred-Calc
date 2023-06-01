@@ -28,14 +28,14 @@ export default function Header() {
             style={styles.cardImage}
             source={require("../../assets/Design-NVG.jpg")}
           />
-          <Text style={styles.cardTitle}>Card 1</Text>
+          <Text style={styles.cardTitle}>CGPA</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.card2} onPress={handleCard2Press}>
           <Image
             style={styles.cardImage}
             source={require("../../assets/Design-NVG.jpg")}
           />
-          <Text style={styles.cardTitle}>Card 2</Text>
+          <Text style={styles.cardTitle}>GPA</Text>
         </TouchableOpacity>
       </View>
       {/* Loader */}
