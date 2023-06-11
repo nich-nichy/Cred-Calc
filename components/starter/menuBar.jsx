@@ -2,6 +2,7 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 export default function Menubar() {
+  
   return (
     <View style={styles.popupMenu}>
       <TouchableOpacity>
@@ -32,10 +33,11 @@ export default function Menubar() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-end",
+    // justifyContent: "flex-end",
     alignItems: "center",
     paddingBottom: 0,
-    backgroundColor: "#111827",
+    // backgroundColor: "#111827",
+    position: "absolute",
   },
   popupMenu: {
     backgroundColor: "white",
