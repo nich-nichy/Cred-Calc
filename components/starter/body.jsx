@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   ScrollView,
+  NavigationContainer,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -74,6 +75,15 @@ export default function Body() {
           <Text style={styles.cardTitle}>Loan</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.cardHolder}>
+        <TouchableOpacity style={styles.advertisement}>
+          <Text style={styles.advertisementHeader}>Advertisement</Text>
+          <Image
+            style={styles.cardImage}
+            source={require("../../assets/Design-NVG.jpg")}
+          />
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 }
@@ -137,6 +147,29 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginTop: 10,
     color: "#fff",
+  },
+  advertisement: {
+    width: 250,
+    height: 200,
+    margin: 10,
+    marginTop: "20px",
+    marginBottom: "30px",
+    backgroundColor: "#1e293b",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  advertisementHeader: {
+    color: "#fff",
+    paddingBottom: 15,
   },
   progressBar: {
     marginTop: "10px",
