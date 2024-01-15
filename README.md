@@ -1,4 +1,4 @@
-React Native Calculator App
+- React Native Calculator App
 
 Overview
 The React Native Calculator App is a mobile application designed to provide a suite of calculators for various purposes and to learn it.
