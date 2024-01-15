@@ -1,91 +1,112 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
 
-const Cgpa = ({ courses }) => {
-  const [cgpa, setCgpa] = useState(0);
+const Cgpa = () => {
+  const [courses, setCourses] = useState([]);
+  const [courseName, setCourseName] = useState("");
+  const [creditHours, setCreditHours] = useState("");
+  const [points, setPoints] = useState("");
+  const [cgpa, setCGPA] = useState(null);
 
-  const calculateCgpa = () => {
-    const totalCredits = courses.reduce(
-      (acc, course) => acc + course.creditHours,
-      0
-    );
+  const addCourse = () => {
+    if (!courseName || !creditHours || !points) {
+      // Handle validation or show an alert
+      return;
+    }
+
+    const newCourse = {
+      id: courses.length + 1,
+      name: courseName,
+      creditHours: parseFloat(creditHours),
+      points: parseFloat(points),
+    };
+
+    setCourses([...courses, newCourse]);
+    setCourseName("");
+    setCreditHours("");
+    setPoints("");
+  };
+
+  const calculateCGPA = () => {
+    if (courses.length === 0) {
+      // Handle the case when there are no courses added
+      return;
+    }
+
+    const totalCredits = courses.reduce((acc, course) => acc + course.creditHours, 0);
     const totalPoints = courses.reduce((acc, course) => acc + course.points, 0);
 
-    setCgpa(totalPoints / totalCredits);
+    const calculatedCGPA = totalPoints / totalCredits;
+    setCGPA(calculatedCGPA.toFixed(2)); // Keep only two decimal places
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>CGPA Calculator</Text>
-      <View style={styles.courses}>
-        {courses.map((course) => (
-          <View key={course.id}>
-            <Text style={styles.courseName}>{course.name}</Text>
-            <Text style={styles.courseCredits}>{course.creditHours}</Text>
-            <Text style={styles.coursePoints}>{course.points}</Text>
-          </View>
-        ))}
+      <View style={styles.container}>
+        <Text style={styles.header}>College CGPA Calculator</Text>
+        <TextInput
+            style={styles.input}
+            placeholder="Course Name"
+            onChangeText={(text) => setCourseName(text)}
+            value={courseName}
+        />
+        <TextInput
+            style={styles.input}
+            placeholder="Credit Hours"
+            keyboardType="numeric"
+            onChangeText={(text) => setCreditHours(text)}
+            value={creditHours}
+        />
+        <TextInput
+            style={styles.input}
+            placeholder="Points Obtained"
+            keyboardType="numeric"
+            onChangeText={(text) => setPoints(text)}
+            value={points}
+        />
+        <TouchableOpacity style={styles.button} onPress={addCourse}>
+          <Text style={styles.buttonText}>Add Course</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={calculateCGPA}>
+          <Text style={styles.buttonText}>Calculate CGPA</Text>
+        </TouchableOpacity>
+        {cgpa !== null && <Text style={styles.result}>CGPA: {cgpa}</Text>}
       </View>
-      <View style={styles.cgpa}>
-        <Text style={styles.cgpaLabel}>CGPA</Text>
-        <Text style={styles.cgpaValue}>{cgpa}</Text>
-      </View>
-      <View style={styles.button}>
-        <Text onPress={calculateCgpa}>Calculate CGPA</Text>
-      </View>
-    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: 300,
-    height: 400,
-    margin: 10,
-    borderRadius: 5,
-    backgroundColor: "#fff",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f5f5f5",
   },
   header: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
+    marginBottom: 20,
   },
-  courses: {
-    flex: 1,
-    flexDirection: "column",
-  },
-  courseName: {
-    fontSize: 16,
-  },
-  courseCredits: {
-    fontSize: 16,
-    margin: 5,
-  },
-  coursePoints: {
-    fontSize: 16,
-    margin: 5,
-  },
-  cgpa: {
-    flex: 1,
-    flexDirection: "row",
-  },
-  cgpaLabel: {
-    fontSize: 16,
-    margin: 5,
-  },
-  cgpaValue: {
-    fontSize: 16,
-    fontWeight: "bold",
-    margin: 5,
+  input: {
+    height: 40,
+    width: 200,
+    borderColor: "gray",
+    borderWidth: 1,
+    marginBottom: 20,
+    padding: 10,
   },
   button: {
-    width: 100,
-    height: 40,
-    backgroundColor: "#000",
-    color: "#fff",
+    backgroundColor: "#007BFF",
+    padding: 10,
     borderRadius: 5,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: "#fff",
     textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center",
+  },
+  result: {
+    fontSize: 18,
+    marginTop: 10,
   },
 });
 
