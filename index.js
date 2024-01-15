@@ -5,12 +5,10 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function App() {
     const navigation = useNavigation();
-
     const handleCard1Press = () => {
     };
 
     const handleNavigation = (componentName) => {
-        console.log(componentName);
         switch (componentName) {
             case 'CGPA':
                 navigation.navigate('CGPA');
@@ -107,16 +105,13 @@ export default function App() {
                                 <Text style={styles.advertisementHeader}>Advertisement</Text>
                                 <Image
                                     style={styles.cardImage}
-                                    source={require("./assets/splash.png")}
+                                    source={require("./assets/Design-NVG.jpg")}
                                 />
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
                 </View>
             </>
-        // <View style={styles.container}>
-        //
-        // </View>
         )
 }
 
@@ -142,13 +137,13 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         marginTop: "30px",
         marginBottom: "20px",
-        padding: "10px 0px 0px 0px",
+        padding: "10px",
     },
     containerBody: {
         flexGrow: 1,
         paddingVertical: 10,
         height: 100,
-        margin: "0px 0px 0px 0px",
+        margin: "0px",
     },
     cardHolder: {
         flexDirection: "row",
