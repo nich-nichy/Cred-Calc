@@ -7,11 +7,6 @@ Technologies Used:
 React Native: A JavaScript framework for building cross-platform mobile applications.
 Redux: State management library for handling application state.
 
-Getting Started:
-Prerequisites
-Node.js and npm installed on your machine.
-Expo CLI installed globally (npm install -g expo-cli).
-
 Acknowledgments:
 FreeCodeCamp, CodeWithMosh, W3Schools, ReactNativeDocs, ReduxDocs.
 
