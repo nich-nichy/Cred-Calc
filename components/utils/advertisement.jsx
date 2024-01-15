@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const Loan = ({ courses }) => {
+const Advertisement = ({ courses }) => {
 
     return (
         <View style={styles.container}>
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Loan;
+export default Advertisement;

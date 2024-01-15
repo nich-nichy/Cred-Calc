@@ -18,11 +18,20 @@ export default function App() {
             case 'GPA':
                 navigation.navigate('GPA');
                 break;
-            case 'CGPA':
-                navigation.navigate('CGPA');
+            case 'AGE':
+                navigation.navigate('AGE');
                 break;
-            case 'CGPA':
-                navigation.navigate('CGPA');
+            case 'BMI':
+                navigation.navigate('BMI');
+                break;
+            case 'TIP':
+                navigation.navigate('TIP');
+                break;
+            case 'Loan':
+                navigation.navigate('Loan');
+                break;
+            case 'Advertisement':
+                navigation.navigate('Advertisement');
                 break;
             default:
                 break;
@@ -31,8 +40,7 @@ export default function App() {
 
     return (
             <>
-                <View>
-                    {/* <Text style={styles.title}>CredCalc</Text> */}
+                <View style={styles.container}>
                     {/* Header */}
                     <Image
                         style={styles.logo}
@@ -48,48 +56,48 @@ export default function App() {
                             <TouchableOpacity style={styles.card1} onPress={() => handleNavigation('CGPA')}>
                                 <Image
                                     style={styles.cardImage}
-                                    source={require("./assets/Design-NVG.jpg")}
+                                    source={require("./assets/Calculator-Cgpa.png")}
                                 />
                                 <Text style={styles.cardTitle}>CGPA</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.card2} onPress={() => handleNavigation('GPA')}>
                                 <Image
                                     style={styles.cardImage}
-                                    source={require("./assets/Design-NVG.jpg")}
+                                    source={require("./assets/Calculator-Gpa.png")}
                                 />
                                 <Text style={styles.cardTitle}>GPA</Text>
                             </TouchableOpacity>
                         </View>
                         {/* Card second wrapper */}
                         <View style={styles.cardHolder}>
-                            <TouchableOpacity style={styles.card1} onPress={handleNavigation('GPA')}>
+                            <TouchableOpacity style={styles.card1} onPress={() => handleNavigation('AGE')}>
                                 <Image
                                     style={styles.cardImage}
-                                    source={require("./assets/Design-NVG.jpg")}
+                                    source={require("./assets/age.png")}
                                 />
                                 <Text style={styles.cardTitle}>Age</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.card2} onPress={handleNavigation('GPA')}>
+                            <TouchableOpacity style={styles.card2} onPress={() => handleNavigation('BMI')}>
                                 <Image
                                     style={styles.cardImage}
-                                    source={require("./assets/Design-NVG.jpg")}
+                                    source={require("./assets/bmi.png")}
                                 />
                                 <Text style={styles.cardTitle}>BMI</Text>
                             </TouchableOpacity>
                         </View>
                         {/* Card third wrapper */}
                         <View style={styles.cardHolder}>
-                            <TouchableOpacity style={styles.card1} onPress={handleNavigation('GPA')}>
+                            <TouchableOpacity style={styles.card1} onPress={() => handleNavigation('TIP')}>
                                 <Image
                                     style={styles.cardImage}
-                                    source={require("./assets/Design-NVG.jpg")}
+                                    source={require("./assets/tip.png")}
                                 />
                                 <Text style={styles.cardTitle}>Tip</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.card2} onPress={handleNavigation('GPA')}>
+                            <TouchableOpacity style={styles.card2} onPress={() => handleNavigation('Loan')}>
                                 <Image
                                     style={styles.cardImage}
-                                    source={require("./assets/Design-NVG.jpg")}
+                                    source={require("./assets/loan.png")}
                                 />
                                 <Text style={styles.cardTitle}>Loan</Text>
                             </TouchableOpacity>
@@ -99,7 +107,7 @@ export default function App() {
                                 <Text style={styles.advertisementHeader}>Advertisement</Text>
                                 <Image
                                     style={styles.cardImage}
-                                    source={require("./assets/Design-NVG.jpg")}
+                                    source={require("./assets/splash.png")}
                                 />
                             </TouchableOpacity>
                         </View>
@@ -118,7 +126,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         alignItems: "center",
         paddingBottom: 0,
-        backgroundColor: "#111827",
+        backgroundColor: "#182135",
     },
     title: {
         color: "#fff",
