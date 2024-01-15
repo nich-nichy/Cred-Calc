@@ -9,8 +9,7 @@ const Cgpa = ({ courses }) => {
       (acc, course) => acc + course.creditHours,
       0
     );
-    const totalPoints = courses.reduce((acc, course) => acc + course.points, 0);
-
+    const totalPoints = courses?.reduce((acc, course) => acc + course.points, 0);
     setCgpa(totalPoints / totalCredits);
   };
 
@@ -18,7 +17,7 @@ const Cgpa = ({ courses }) => {
     <View style={styles.container}>
       <Text style={styles.header}>CGPA Calculator</Text>
       <View style={styles.courses}>
-        {courses.map((course) => (
+        {courses?.map((course) => (
           <View key={course.id}>
             <Text style={styles.courseName}>{course.name}</Text>
             <Text style={styles.courseCredits}>{course.creditHours}</Text>
